@@ -91,6 +91,23 @@ function DexonBot(){
                 case "hug":
                     require("./cmds/hug.js").exec(data);
                     break;
+                    
+                case "스팸":
+                    data.lang ='korean'
+                    require("./cmds/spam.js).exec(data);
+                    break;
+                case "구걸"
+                    data.parameters.push('/begging');
+                    data.lang ='korean'
+                    require("./cmds/spam.js").exec(data);
+                    break;
+                case "거래":
+                    data.parameters.push('/trading');
+                    data.lang ='korean'
+                    require("./cmds/spam.js").exec(data);
+                    break;
+                    
+                    
             }
         }catch(e){
             console.error("[onCMD Error] ", e.message);
