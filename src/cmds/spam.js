@@ -114,6 +114,23 @@ function spam(data) {
         } else if (command == "rambling") {
             msg += rambling_msg;
         }
+        //For Korean Version 
+        var spam_msg = "채널설정 맨 첫번째 채널이 스팸채널입니다. 공식적인 채널들 말고 스팸채널가서 말씀해주세요. (i.imgur.com/iBGsGTY.png). ";
+        var begging_msg = "돈을 구걸하거나 달라고하는 행위는  " + channelName + "(한국) 채널에서는 금지입니다. ";
+        var trading_msg = "스크립트 혹은 비트를 파거나 사는 행위는  " + channelName + "(한국) 채널에서는 금지입니다.";
+        var rambling_msg = "욕하거나 비난하는 행위는 " + channelName + "(한국) 채널에서 자제해주세요. Please tone it down. ";
+
+        var mute_warning_msg = "계속해서 같은 행위를 반복하실경우 채금 들어갑니다.";
+
+        var msg = '';
+
+        if (command == "구걸") {
+            msg += begging_msg;
+        } else if (command == "거래") {
+            msg += trading_msg;
+        } else if (command == "어리버리") {
+            msg += rambling_msg;
+        }
 
         msg += spam_msg;
 
