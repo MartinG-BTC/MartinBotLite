@@ -101,7 +101,7 @@ function spam(data) {
             mute_warning_msg  = "\uACC4\uC18D\uD574\uC11C \uAC19\uC740 \uD589\uC704\uB97C \uBC18\uBCF5\uD558\uC2E4\uACBD\uC6B0 \uCC44\uAE08 \uB4E4\uC5B4\uAC11\uB2C8\uB2E4.";
         } else if(language == 'filipino') {
             spam_msg = "Maaari kang pumunta sa channel ng SPAM sa pamamagitan ng pag-click sa icon ng bandila sa kanan ng chat box, pagkatapos ay piliin ang pulang bandila na may kabaligtaran pentagram (i.imgur.com/iBGsGTY.png). ";
-            begging_msg = "Ang paghingi ng pera o mga pautang, kahit na bilang joke, ay hindi pinahihintulutan sa " + channelName + " na channel. ";
+            begging_msg = "Ang paghingi ng pera o mga pautang, kahit biro, ay hindi pinahihintulutan sa " + channelName + " na channel. ";
             trading_msg = "Hindi pinapayagan ang pagbili, pagbebenta at pangangalakal sa " + channelName + " channel. ";
             rambling_msg = "Ang iyong nakakainis na pag-uusap ay dominado ang " + channelName + " na channel. Maging tahimik ka lang. ";
             mute_warning_msg = "Ang pagpapatuloy sa gawaing ito ay magreresulta sa isang mute.";
