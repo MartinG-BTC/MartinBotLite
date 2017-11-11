@@ -90,25 +90,25 @@ function DexonBot(){
                     data.parameters.push('/rambling');
                     require("./cmds/spam.js").exec(data);
                     break;
-                case "스팸":
-                    console.log('case', "스팸");
+                case "\uC2A4\uD338":
+                    console.log('case', "\uC2A4\uD338");
                     data.parameters.push('#korean');
                     require("./cmds/spam.js").exec(data);
                     break;
-                case "구걸":
-                    console.log('case', "구걸");
+                case "\uAD6C\uAC78":
+                    console.log('case', "\uAD6C\uAC78");
                     data.parameters.push('#korean');
                     data.parameters.push('/begging');
                     require("./cmds/spam.js").exec(data);
                     break;
-                case "거래":
-                    console.log('case', "거래");
+                case "\uAC70\uB798":
+                    console.log('case', "\uAC70\uB798");
                     data.parameters.push('#korean');
                     data.parameters.push('/trading');
                     require("./cmds/spam.js").exec(data);
                     break;
-                case "어리버리":
-                    console.log('case', "어리버리");
+                case "\uC5B4\uB9AC\uBC84\uB9AC":
+                    console.log('case', "\uC5B4\uB9AC\uBC84\uB9AC");
                     data.parameters.push('#korean');
                     data.parameters.push('/rambling');
                     require("./cmds/spam.js").exec(data);

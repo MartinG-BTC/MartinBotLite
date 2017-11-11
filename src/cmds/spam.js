@@ -92,11 +92,11 @@ function spam(data) {
         var mute_warning_msg;
 
         if(language == 'korean') {
-            spam_msg = "채널설정 맨 첫번째 채널이 스팸채널입니다. 공식적인 채널들 말고 스팸채널가서 말씀해주세요. (i.imgur.com/iBGsGTY.png). ";
-            begging_msg = "돈을 구걸하거나 달라고하는 행위는  " + channelName + "(한국) 채널에서는 금지입니다. ";
-            trading_msg = "스크립트 혹은 비트를 파거나 사는 행위는  " + channelName + "(한국) 채널에서는 금지입니다.";
-            rambling_msg  = "욕하거나 비난하는 행위는 " + channelName + "(한국) 채널에서 자제해주세요. Please tone it down. ";
-            mute_warning_msg  = "계속해서 같은 행위를 반복하실경우 채금 들어갑니다.";
+            spam_msg = "\uCC44\uB110\uC124\uC815 \uB9E8 \uCCAB\uBC88\uC9F8 \uCC44\uB110\uC774 \uC2A4\uD338\uCC44\uB110\uC785\uB2C8\uB2E4. \uACF5\uC2DD\uC801\uC778 \uCC44\uB110\uB4E4 \uB9D0\uACE0 \uC2A4\uD338\uCC44\uB110\uAC00\uC11C \uB9D0\uC500\uD574\uC8FC\uC138\uC694. (i.imgur.com/iBGsGTY.png). ";
+            begging_msg = "\uB3C8\uC744 \uAD6C\uAC78\uD558\uAC70\uB098 \uB2EC\uB77C\uACE0\uD558\uB294 \uD589\uC704\uB294  " + channelName + "(\uD55C\uAD6D) \uCC44\uB110\uC5D0\uC11C\uB294 \uAE08\uC9C0\uC785\uB2C8\uB2E4. ";
+            trading_msg = "\uC2A4\uD06C\uB9BD\uD2B8 \uD639\uC740 \uBE44\uD2B8\uB97C \uD30C\uAC70\uB098 \uC0AC\uB294 \uD589\uC704\uB294  " + channelName + "(\uD55C\uAD6D) \uCC44\uB110\uC5D0\uC11C\uB294 \uAE08\uC9C0\uC785\uB2C8\uB2E4.";
+            rambling_msg  = "\uC695\uD558\uAC70\uB098 \uBE44\uB09C\uD558\uB294 \uD589\uC704\uB294 " + channelName + "(\uD55C\uAD6D) \uCC44\uB110\uC5D0\uC11C \uC790\uC81C\uD574\uC8FC\uC138\uC694. Please tone it down. ";
+            mute_warning_msg  = "\uACC4\uC18D\uD574\uC11C \uAC19\uC740 \uD589\uC704\uB97C \uBC18\uBCF5\uD558\uC2E4\uACBD\uC6B0 \uCC44\uAE08 \uB4E4\uC5B4\uAC11\uB2C8\uB2E4.";
         } else {
             spam_msg = "You can go to the SPAM channel by clicking the flag icon to the right of the chat box, then selecting the red flag with an inverse pentagram (i.imgur.com/iBGsGTY.png). ";
             begging_msg = "Asking for money or loans, even as a joke, is not allowed in the " + channelName + " channel. ";
