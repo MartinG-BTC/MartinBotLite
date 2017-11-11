@@ -50,6 +50,8 @@ function spam(data) {
             command = "rambling";
         } else if(parameters[i] == "#korean") {
             language = "korean";
+        } else if(parameters[i] == "#filipino") {
+            language = "filipino";
         } else if(parameters[i] == "-0") {
             noMute = true;
         } else if(parameters[i] == "-l") {
