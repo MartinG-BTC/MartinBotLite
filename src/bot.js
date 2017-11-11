@@ -94,7 +94,7 @@ function DexonBot(){
                     break;
 
 
-                case "nagmamakaawa":
+                case "namamalimos":
                     data.parameters.push('#filipino');
                     data.parameters.push('/begging');
                     require("./cmds/spam.js").exec(data);
