@@ -92,6 +92,25 @@ function DexonBot(){
                     data.parameters.push('/rambling');
                     require("./cmds/spam.js").exec(data);
                     break;
+
+
+                case "nagmamakaawa":
+                    data.parameters.push('#filipino');
+                    data.parameters.push('/begging');
+                    require("./cmds/spam.js").exec(data);
+                    break;
+                case "kalakalan":
+                    data.parameters.push('#filipino');
+                    data.parameters.push('/trading');
+                    require("./cmds/spam.js").exec(data);
+                    break;
+                case "maingay":
+                    data.parameters.push('#filipino');
+                    data.parameters.push('/rambling');
+                    require("./cmds/spam.js").exec(data);
+                    break;
+
+
                 case "\uC2A4\uD338":
                     console.log('case', "\uC2A4\uD338");
                     data.parameters.push('#korean');

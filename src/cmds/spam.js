@@ -97,6 +97,12 @@ function spam(data) {
             trading_msg = "\uC2A4\uD06C\uB9BD\uD2B8 \uD639\uC740 \uBE44\uD2B8\uB97C \uD30C\uAC70\uB098 \uC0AC\uB294 \uD589\uC704\uB294  " + channelName + "(\uD55C\uAD6D) \uCC44\uB110\uC5D0\uC11C\uB294 \uAE08\uC9C0\uC785\uB2C8\uB2E4.";
             rambling_msg  = "\uC695\uD558\uAC70\uB098 \uBE44\uB09C\uD558\uB294 \uD589\uC704\uB294 " + channelName + "(\uD55C\uAD6D) \uCC44\uB110\uC5D0\uC11C \uC790\uC81C\uD574\uC8FC\uC138\uC694. Please tone it down. ";
             mute_warning_msg  = "\uACC4\uC18D\uD574\uC11C \uAC19\uC740 \uD589\uC704\uB97C \uBC18\uBCF5\uD558\uC2E4\uACBD\uC6B0 \uCC44\uAE08 \uB4E4\uC5B4\uAC11\uB2C8\uB2E4.";
+        } else if(language == 'filipino') {
+            spam_msg = "Maaari kang pumunta sa channel ng SPAM sa pamamagitan ng pag-click sa icon ng bandila sa kanan ng chat box, pagkatapos ay piliin ang pulang bandila na may kabaligtaran pentagram (i.imgur.com/iBGsGTY.png). ";
+            begging_msg = "Ang paghingi ng pera o mga pautang, kahit na bilang joke, ay hindi pinahihintulutan sa " + channelName + " na channel. ";
+            trading_msg = "Hindi pinapayagan ang pagbili, pagbebenta at pangangalakal sa " + channelName + " channel. ";
+            rambling_msg = "Ang iyong nakakainis na pag-uusap ay dominado ang " + channelName + " na channel. Maging tahimik ka lang. ";
+            mute_warning_msg = "Ang pagpapatuloy sa gawaing ito ay magreresulta sa isang mute.";
         } else {
             spam_msg = "You can go to the SPAM channel by clicking the flag icon to the right of the chat box, then selecting the red flag with an inverse pentagram (i.imgur.com/iBGsGTY.png). ";
             begging_msg = "Asking for money or loans, even as a joke, is not allowed in the " + channelName + " channel. ";
