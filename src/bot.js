@@ -68,6 +68,8 @@ function DexonBot(){
         me.saveChatMessage(msg);
     });
 
+    // Use this website for conversion of unicode strings https://r12a.github.io/apps/conversion/
+
     self.onCmd = function(cmd, data){
 
         try{

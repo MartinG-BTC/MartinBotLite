@@ -28,6 +28,7 @@ function WebClient(config) {
 inherits(WebClient, EventEmitter);
 
 WebClient.prototype.onMsg = function(msg) {
+    console.log(msg);
     this.emit('msg', msg);
 };
 
