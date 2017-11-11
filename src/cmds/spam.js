@@ -15,7 +15,7 @@ function spam(data) {
 
     var queryUsername;
     var command;
-
+    var language = "english";
     var silent = false;
     var silentCount = 0;
     var noMute = false;
@@ -48,6 +48,8 @@ function spam(data) {
             command = "begging";
         } else if(parameters[i] == "/rambling") {
             command = "rambling";
+        } else if(parameters[i] == "#korean") {
+            language = "korean";
         } else if(parameters[i] == "-0") {
             noMute = true;
         } else if(parameters[i] == "-l") {
@@ -83,12 +85,25 @@ function spam(data) {
 
     function buildMessage(count) {
 
-        var spam_msg = "You can go to the SPAM channel by clicking the flag icon to the right of the chat box, then selecting the red flag with an inverse pentagram (i.imgur.com/iBGsGTY.png). ";
-        var begging_msg = "Asking for money or loans, even as a joke, is not allowed in the " + channelName + " channel. ";
-        var trading_msg = "Buying, selling and trading is not allowed in the " + channelName + " channel. ";
-        var rambling_msg = "Your annoying rambling is dominating the " + channelName + " channel. Please tone it down. ";
+        var spam_msg;
+        var begging_msg;
+        var trading_msg;
+        var rambling_msg;
+        var mute_warning_msg;
 
-        var mute_warning_msg = "Continuing to do so will result in a mute.";
+        if(language == 'korean') {
+            spam_msg = "채널설정 맨 첫번째 채널이 스팸채널입니다. 공식적인 채널들 말고 스팸채널가서 말씀해주세요. (i.imgur.com/iBGsGTY.png). ";
+            begging_msg = "돈을 구걸하거나 달라고하는 행위는  " + channelName + "(한국) 채널에서는 금지입니다. ";
+            trading_msg = "스크립트 혹은 비트를 파거나 사는 행위는  " + channelName + "(한국) 채널에서는 금지입니다.";
+            rambling_msg  = "욕하거나 비난하는 행위는 " + channelName + "(한국) 채널에서 자제해주세요. Please tone it down. ";
+            mute_warning_msg  = "계속해서 같은 행위를 반복하실경우 채금 들어갑니다.";
+        } else {
+            spam_msg = "You can go to the SPAM channel by clicking the flag icon to the right of the chat box, then selecting the red flag with an inverse pentagram (i.imgur.com/iBGsGTY.png). ";
+            begging_msg = "Asking for money or loans, even as a joke, is not allowed in the " + channelName + " channel. ";
+            trading_msg = "Buying, selling and trading is not allowed in the " + channelName + " channel. ";
+            rambling_msg = "Your annoying rambling is dominating the " + channelName + " channel. Please tone it down. ";
+            mute_warning_msg = "Continuing to do so will result in a mute.";
+        }
 
         var msg = '';
 

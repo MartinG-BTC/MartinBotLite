@@ -88,6 +88,25 @@ function DexonBot(){
                     data.parameters.push('/rambling');
                     require("./cmds/spam.js").exec(data);
                     break;
+                case "스팸":
+                    data.parameters.push('#korean');
+                    require("./cmds/spam.js").exec(data);
+                    break;
+                case "구걸":
+                    data.parameters.push('#korean');
+                    data.parameters.push('/begging');
+                    require("./cmds/spam.js").exec(data);
+                    break;
+                case "거래":
+                    data.parameters.push('#korean');
+                    data.parameters.push('/trading');
+                    require("./cmds/spam.js").exec(data);
+                    break;
+                case "어리버리":
+                    data.parameters.push('#korean');
+                    data.parameters.push('/rambling');
+                    require("./cmds/spam.js").exec(data);
+                    break;
                 case "hug":
                     require("./cmds/hug.js").exec(data);
                     break;
