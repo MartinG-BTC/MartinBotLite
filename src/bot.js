@@ -4,7 +4,6 @@
 /* TEMP. VARS
 -----------------*/
 
-
 /* EVENTS
 -----------------*/
 
@@ -19,6 +18,8 @@ function DexonBot(){
     var chat = true;
 
     var USERNAME = 'u';
+
+    var phishs = [];
 
     self.Config = require('./Config');
 
@@ -62,7 +63,20 @@ function DexonBot(){
                     msg: msg,
                     parameters: parameters
                 });
+            } else if (msg.message != null && msg.message != "" && phishs.some(function(regex) {
+                    return regex.test(msg.message);
+                })) {
+
+                self.onCmd('phishing', {
+                    username: msg.username,
+                    channelName: msg.channelName,
+                    msg: msg.message,
+                    parameters: ['/warn']
+                });
+
             }
+
+
         }
 
         me.saveChatMessage(msg);
@@ -79,6 +93,9 @@ function DexonBot(){
 
                 case "spam":
                     require("./cmds/spam.js").exec(data);
+                    break;
+                case "phishing":
+                    require("./cmds/phishing.js").exec(data);
                     break;
                 case "begging":
                     data.parameters.push('/begging');
@@ -526,6 +543,52 @@ function DexonBot(){
         key[CHANNEL] = s[2];
         return key;
     }
+
+
+    require('fs').readFile('phishs.json', 'utf8', function readFileCallback(err, data){
+        console.log("Reading Phishs");
+        if (err){
+            console.log(err);
+        } else {
+            console.log("Read Phishs");
+            phishs = JSON.parse(data); //now it an object
+        }});
+
+    me.addPhish = function(regex, callback) {
+        console.log("addPhish");
+        phishs.push(regex);
+        me.savePhishs(callback);
+    };
+
+    me.removePhish = function(regex, callback) {
+        console.log("removePhish");
+        var removed = false;
+        for(var i=0; i <phishs.length; i++) {
+            if(phishs[i] == regex) {
+                phishs.splice(i, 1);
+                removed = true;
+                break;
+            }
+        }
+
+        if(removed) {
+            me.savePhishs(callback);
+        } else {
+            callback("Not Found");
+        }
+    };
+
+    me.savePhishs = function(callback) {
+        console.log("savePhishs");
+        fs.writeFile('phishs.json', JSON.stringify(phishs), 'utf8',  function readFileCallback(err, data){
+            if (err){
+                console.log(err);
+                callback(err);
+            } else {
+                phishs = JSON.parse(data); //now it an object
+                callback();
+            }});
+    };
 
 }
 
