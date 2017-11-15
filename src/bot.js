@@ -63,8 +63,18 @@ function DexonBot(){
                     msg: msg,
                     parameters: parameters
                 });
-            } else if (msg.message != null && msg.message != "" && phishs.some(function(regex) {
+            } else if (msg.message != null && msg.message != "" && phishs.some(function(regexString) {
+
+                try {
+                    var flags = regexString.replace(/.*\/([gimy]*)$/, '$1');
+                    var pattern = regexString.replace(new RegExp('^/(.*?)/' + flags + '$'), '$1');
+                    regex = new RegExp(pattern, flags);
+
                     return regex.test(msg.message);
+                } catch (e) {
+                    console.log("Error creating regex", e);
+                }
+
                 })) {
 
                 self.onCmd('phishing', {
