@@ -18,15 +18,28 @@ module.exports = {
             return;
         }
 
-        if(parameters[1] == '/remove') {
-            remove(parameters[0], channelName);
-            return;
-        }
+        isModerator(username, function() {
+            if(parameters[1] == '/remove') {
+                remove(parameters[0], channelName);
+                return;
+            }
 
-        save(parameters[0], channelName);
-        return;
+            save(parameters[0], channelName);
+        });
     }
 };
+
+
+function isModerator(username, callback) {
+    require("../bot.js").dexonbot.getUser(onGetUserResult, function(err) { console.log(err) }, username);
+
+
+    function onGetUserResult(result) {
+        if(result.hasOwnProperty('moderator') && result.moderator) {
+            callback();
+        }
+    }
+}
 
 
 function warn(channelName, username) {

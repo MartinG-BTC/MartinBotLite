@@ -596,7 +596,6 @@ function DexonBot(){
                     console.log(err);
                     callback(err);
                 } else {
-                    phishs = JSON.parse(data); //now it an object
                     callback();
                 }
             });
