@@ -11,26 +11,22 @@ module.exports = {
             channelName = data.channelName,
             parameters = data.parameters;
 
-        if(parameters.length == 0) {
-            return;
-        }
-
         isModerator(username, function(mod) {
             if(!mod) {
 
-                if(parameters[0] == '/match') {
+                if(parameters.length == 1 && parameters[0] == '/match') {
                     warn(channelName, username);
                     return;
                 }
 
             } else {
 
-                if(parameters[0] == '/warn') {
+                if(parameters.length == 0) {
                     warn(channelName);
-                } else if (parameters[1] == '/remove') {
-                    remove(parameters[0], channelName);
-                } else {
+                } else if (parameters.length == 1) {
                     save(parameters[0], channelName);
+                } else if (parameters.length == 2 && parameters[1] == '/remove') {
+                    remove(parameters[0], channelName);
                 }
 
             }
@@ -56,10 +52,9 @@ function isModerator(username, callback) {
 function warn(channelName, username) {
     if(username) {
         var muteCommand = "/mute " + username + " 365d";
-        console.log(muteCommand);
         require("../bot.js").dexonbot.webClient.doSay(muteCommand, channelName);
     }
-    require("../bot.js").dexonbot.webClient.doSay("[Phishing] " + (username ? 'MALICIOUS LINK DETECTED ' : '')  + "BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click on " + (username ? ("the link posted by @" + username + " ") : "a phishing link ") + "and sign in, you will loose your bits.", channelName);
+    require("../bot.js").dexonbot.webClient.doSay("[Phishing] " + (username ? 'MALICIOUS LINK DETECTED - ' : '')  + "BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click on " + (username ? ("the link posted by @" + username + " ") : "a phishing link ") + "and sign in, you will loose your bits.", channelName);
 }
 
 function save(regexString, channelName) {
