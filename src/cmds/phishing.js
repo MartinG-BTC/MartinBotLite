@@ -48,7 +48,7 @@ function isModerator(username, callback) {
 
 
     function onGetUserResult(result) {
-        if(result.hasOwnProperty('moderator') && result.moderator) {
+        if(result && result.moderator) {
             callback(true);
         } else {
             callback(false);
