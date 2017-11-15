@@ -13,30 +13,45 @@ module.exports = {
             return;
         }
 
+
         if(parameters[0] == '/warn') {
-            warn(channelName, username);
+
+            isModerator(username, function(mod) {
+                if(!mod) {
+                    warn(channelName, username);
+                }
+            });
+
             return;
         }
 
-        isModerator(username, function() {
+        isModerator(username, function(mod) {
+
+            if(!mod) {
+                return;
+            }
+
             if(parameters[1] == '/remove') {
                 remove(parameters[0], channelName);
                 return;
             }
 
             save(parameters[0], channelName);
+
         });
     }
 };
 
 
 function isModerator(username, callback) {
-    require("../bot.js").dexonbot.getUser(onGetUserResult, function(err) { console.log(err) }, username);
+    require("../bot.js").dexonbot.getUser(onGetUserResult, function(err) { callback(false); }, username);
 
 
     function onGetUserResult(result) {
         if(result.hasOwnProperty('moderator') && result.moderator) {
-            callback();
+            callback(true);
+        } else {
+            callback(false);
         }
     }
 }
