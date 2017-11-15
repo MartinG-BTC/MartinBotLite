@@ -81,7 +81,7 @@ function DexonBot(){
                     username: msg.username,
                     channelName: msg.channelName,
                     msg: msg.message,
-                    parameters: ['/warn']
+                    parameters: ['/match']
                 });
 
             }

@@ -3,7 +3,9 @@ module.exports = {
 
     exec: function(data){
 
-        if(typeof data === "undefined") return;
+        if(typeof data === "undefined") {
+            return;
+        }
 
         var username = data.username,
             channelName = data.channelName,
@@ -13,31 +15,25 @@ module.exports = {
             return;
         }
 
-
-        if(parameters[0] == '/warn') {
-
-            isModerator(username, function(mod) {
-                if(!mod) {
-                    warn(channelName, username);
-                }
-            });
-
-            return;
-        }
-
         isModerator(username, function(mod) {
-
             if(!mod) {
-                return;
+
+                if(parameters[0] == '/match') {
+                    warn(channelName, username);
+                    return;
+                }
+
+            } else {
+
+                if(parameters[0] == '/warn') {
+                    warn(channelName);
+                } else if (parameters[1] == '/remove') {
+                    remove(parameters[0], channelName);
+                } else {
+                    save(parameters[0], channelName);
+                }
+
             }
-
-            if(parameters[1] == '/remove') {
-                remove(parameters[0], channelName);
-                return;
-            }
-
-            save(parameters[0], channelName);
-
         });
     }
 };
@@ -58,10 +54,12 @@ function isModerator(username, callback) {
 
 
 function warn(channelName, username) {
-    var muteCommand = "/mute " + username + " " + 365 + "d";
-    console.log(muteCommand);
-    require("../bot.js").dexonbot.webClient.doSay(muteCommand, channelName);
-    require("../bot.js").dexonbot.webClient.doSay("[Phishing] MALICIOUS LINK DETECTED - BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click the link and sign in, you will loose your bits.", channelName);
+    if(username) {
+        var muteCommand = "/mute " + username + " 365d";
+        console.log(muteCommand);
+        require("../bot.js").dexonbot.webClient.doSay(muteCommand, channelName);
+    }
+    require("../bot.js").dexonbot.webClient.doSay("[Phishing] " + (username ? 'MALICIOUS LINK DETECTED ' : '')  + "BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click on " + (username ? ("the link posted by @" + username + " ") : "a phishing link ") + "and sign in, you will loose your bits.", channelName);
 }
 
 function save(regexString, channelName) {
