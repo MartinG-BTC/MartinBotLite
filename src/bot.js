@@ -580,14 +580,19 @@ function DexonBot(){
 
     me.savePhishs = function(callback) {
         console.log("savePhishs");
-        fs.writeFile('phishs.json', JSON.stringify(phishs), 'utf8',  function readFileCallback(err, data){
-            if (err){
-                console.log(err);
-                callback(err);
-            } else {
-                phishs = JSON.parse(data); //now it an object
-                callback();
-            }});
+        try {
+            fs.writeFile('phishs.json', JSON.stringify(phishs), 'utf8', function (err, data) {
+                if (err) {
+                    console.log(err);
+                    callback(err);
+                } else {
+                    phishs = JSON.parse(data); //now it an object
+                    callback();
+                }
+            });
+        } catch (e) {
+            console.log("error saving phishes", e);
+        }
     };
 
 }

@@ -33,7 +33,7 @@ function warn(channelName, username) {
     var muteCommand = "/mute " + username + " " + 365 + "d";
     console.log(muteCommand);
     require("../bot.js").dexonbot.webClient.doSay(muteCommand, channelName);
-    require("../bot.js").dexonbot.webClient.doSay("[Phishing] MALICIOUS LINK DETECTED - BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click the link and sign in you will loose your bits.", channelName);
+    require("../bot.js").dexonbot.webClient.doSay("[Phishing] MALICIOUS LINK DETECTED - BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click the link and sign in, you will loose your bits.", channelName);
 }
 
 function save(regexString, channelName) {
@@ -42,6 +42,8 @@ function save(regexString, channelName) {
         var flags = regexString.replace(/.*\/([gimy]*)$/, '$1');
         var pattern = regexString.replace(new RegExp('^/(.*?)/' + flags + '$'), '$1');
         new RegExp(pattern, flags);
+
+        console.log(flags, pattern);
     } catch (e) {
         require("../bot.js").dexonbot.webClient.doSay("[Phishing] Error: Unable to parse that RegEx.", channelName);
         return;
