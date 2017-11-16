@@ -137,6 +137,10 @@ function DexonBot(){
                     require("./cmds/spam.js").exec(data);
                     break;
 
+                case "피싱":
+                    console.log('case', "피싱");
+                    require("./cmds/phishing.js").exec(data);
+                    break;
 
                 case "\uC2A4\uD338":
                     console.log('case', "\uC2A4\uD338");

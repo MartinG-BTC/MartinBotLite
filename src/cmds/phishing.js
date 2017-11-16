@@ -54,7 +54,16 @@ function warn(channelName, username) {
         var muteCommand = "/mute " + username + " 365d";
         require("../bot.js").dexonbot.webClient.doSay(muteCommand, channelName);
     }
-    require("../bot.js").dexonbot.webClient.doSay("[Phishing] " + (username ? 'MALICIOUS LINK DETECTED - ' : '')  + "BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click on " + (username ? ("the link posted by @" + username + " ") : "a phishing link ") + "and sign in, you will loose your bits.", channelName);
+
+    var message;
+
+    if(channelName == 'korean') {
+        message = "[피싱] '씨부레링크가 감지되었습니다. - 부스타빗은 현재 무료비트를 제공하지 않으며 아이디 비밀번호를 요구하지않습니다. 저 쉐리가올린 시부레 링크를 클릭하시고 들어가서 로그인하시면 비트 탈탈 털림 시부레. 조심하세여.";
+    } else {
+        message = "[Phishing] " + (username ? 'MALICIOUS LINK DETECTED - ' : '')  + "BustaBit does not offer free bits, and will never ask you for your username or password to receive a reward. If you click on " + (username ? ("the link posted by @" + username + " ") : "a phishing link ") + "and sign in, you will loose your bits.";
+    }
+
+    require("../bot.js").dexonbot.webClient.doSay(message, channelName);
 }
 
 function save(regexString, channelName) {
