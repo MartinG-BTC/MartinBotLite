@@ -23,6 +23,8 @@ module.exports = {
 
                 if(parameters.length == 0) {
                     warn(channelName);
+                } else if (parameters.length == 1 && parameters[0] == '/match') {
+                    informMatch(channelName);
                 } else if (parameters.length == 1) {
                     save(parameters[0], channelName);
                 } else if (parameters.length == 2 && parameters[1] == '/remove') {
@@ -48,6 +50,9 @@ function isModerator(username, callback) {
     }
 }
 
+function informMatch(channelName) {
+    require("../bot.js").dexonbot.webClient.doSay("[Phishing] That's a match.", channelName);
+}
 
 function warn(channelName, username) {
     if(username) {
