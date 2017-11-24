@@ -199,7 +199,7 @@ function spam(data) {
 
         for(var i=0; i<result.length; i++) {
             if((result[i][TIMESTAMP] > secondsAgo) && (result[i].hasOwnProperty('mod')) && (result[i].mod != username.toLowerCase()) && !list) {
-                return;
+                // return;
             }
 
             if(result[i].type != command) {
