@@ -36,10 +36,21 @@ module.exports = {
     }
 };
 
+var mods = {
+    "ryan": true
+};
 
 function isModerator(username, callback) {
-    require("../bot.js").dexonbot.getUser(onGetUserResult, function(err) { callback(false); }, username);
 
+    if(mods.hasOwnProperty(username.toLowerCase())) {
+
+        callback(true);
+
+    } else {
+
+        require("../bot.js").dexonbot.getUser(onGetUserResult, function (err) { callback(false); }, username);
+
+    }
 
     function onGetUserResult(result) {
         if(result && result.moderator) {
